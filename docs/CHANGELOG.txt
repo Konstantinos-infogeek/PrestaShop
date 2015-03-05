@@ -24,15 +24,6 @@ International Registred Trademark & Property of PrestaShop SA
 Release Notes for PrestaShop 1.6
 --------------------------------
 ####################################
-#   v1.6.0.14 - (2015-03-05)
-####################################
-
-	Fixed bugs:
-
-	[-] CORE : Revert @cb11f9c Module name should be in lowercase
-
-
-####################################
 #   v1.6.0.13 - (2015-02-24)
 ####################################
 
