@@ -1622,7 +1622,7 @@ abstract class ModuleCore
 
 			if ($xml && isset($xml->module))
 				foreach ($xml->module as $modaddons)
-					$trusted[] = (string)$modaddons->name;
+					$trusted[] = Tools::strtolower((string)$modaddons->name);
 		}
 
 		foreach (glob(_PS_ROOT_DIR_.'/config/xml/themes/*.xml') as $theme_xml)
@@ -1632,7 +1632,7 @@ abstract class ModuleCore
 				$xml = @simplexml_load_string($content, null, LIBXML_NOCDATA);
 				foreach ($xml->modules->module as $modaddons)
 					if((string)$modaddons['action'] == 'install')
-						$trusted[] = (string)$modaddons['name'];
+						$trusted[] = Tools::strtolower((string)$modaddons['name']);
 			}
 
 		foreach ($modules_on_disk as $name)
@@ -1640,9 +1640,9 @@ abstract class ModuleCore
 			if (!in_array($name, $trusted))
 			{
 				if (Module::checkModuleFromAddonsApi($name))
-					$trusted[] = $name;
+					$trusted[] = Tools::strtolower($name);
 				else
-					$untrusted[] = $name;
+					$untrusted[] = Tools::strtolower($name);
 			}
 		}
 
