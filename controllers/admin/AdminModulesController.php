@@ -743,6 +743,7 @@ class AdminModulesControllerCore extends AdminController
 			if (isset($modules))
 				foreach ($modules as $name)
 				{
+					$name = Tools::strtolower($name);
 					$module_to_update = array();
 					$module_to_update[$name] = null;
 					$full_report = null;

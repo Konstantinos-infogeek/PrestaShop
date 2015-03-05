@@ -262,7 +262,7 @@ abstract class ModuleCore
 		// Check module dependencies
 		if (count($this->dependencies) > 0)
 			foreach ($this->dependencies as $dependency)
-				if (!Db::getInstance()->getRow('SELECT `id_module` FROM `'._DB_PREFIX_.'module` WHERE `name` = \''.pSQL(Tools::strtolower($dependency)).'\''))
+				if (!Db::getInstance()->getRow('SELECT `id_module` FROM `'._DB_PREFIX_.'module` WHERE LOWER(`name`) = \''.pSQL(Tools::strtolower($dependency)).'\''))
 				{
 					$error = Tools::displayError('Before installing this module, you have to install this/these module(s) first:').'<br />';
 					foreach ($this->dependencies as $d)
